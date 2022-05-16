@@ -58,8 +58,8 @@ button{
 }
 
 /* Pari o dispari */
-.clicked-green{
-    background-color: green;
+.clicked-blue{
+    background-color: rgb(110, 110, 161);
 }
 
 .clicked-red{

@@ -46,6 +46,11 @@ playBtn.addEventListener("click",
         const myNewBombArrayRandom = createRandUniqueNumArr(16, 1, nCells);
         console.log("le mie bombe sono:", myNewBombArrayRandom);
 
+        let myScore = [];
+        let myScoreSum = 0;
+
+    
+
         for (let i = 0; i < myNewArrRandom.length; i++) {
 
             let  divEl = createMyElement(classCelss);
@@ -57,12 +62,18 @@ playBtn.addEventListener("click",
                     // inserisco numero nel divEl.square
                     divEl.append(myNewArrRandom[i]); 
                     console.log(this);
+                    let anotherPoint = parseInt("1");
+                    myScore.push(anotherPoint);
+                    console.log("my single score is", myScore);
+                    myScoreSum += anotherPoint;
+                    console.log("my score is", myScoreSum);
 
                     for (let j = 0; j < myNewBombArrayRandom.length; j++) {
                         if (myNewArrRandom[i] === myNewBombArrayRandom[j]) {
                             this.classList.add("clicked-red");
+                            alert("Hai perso! Hai totalizzato un totale di: " + myScoreSum[-1] + " punti!");
                         } else{
-                            this.classList.add("clicked-green");
+                            this.classList.add("clicked-blue");
                         }
                     }
                 }
@@ -71,6 +82,7 @@ playBtn.addEventListener("click",
         }
     }
 )
+
 
 // funzione che pusha numeri che scegli te da un min ad un max sempre diversi nell'array della dimensione che dai te
 function createRandUniqueNumArr(numItems, min, max) {
@@ -104,6 +116,7 @@ function pariODispari(numeroCheck) {
     }
     return risultato;
 }
+
 
 // funzione che crea 16 numeri casuali senza doppioni e nel range della difficoltà scelta
 function getRandomBombMinMax(rangeMin, rangeMax) {
