@@ -46,10 +46,8 @@ playBtn.addEventListener("click",
         const myNewBombArrayRandom = createRandUniqueNumArr(16, 1, nCells);
         console.log("le mie bombe sono:", myNewBombArrayRandom);
 
-        let myScore = [];
         let myScoreSum = 0;
-
-    
+        const anotherPoint = 1;
 
         for (let i = 0; i < myNewArrRandom.length; i++) {
 
@@ -62,16 +60,16 @@ playBtn.addEventListener("click",
                     // inserisco numero nel divEl.square
                     divEl.append(myNewArrRandom[i]); 
                     console.log(this);
-                    let anotherPoint = parseInt("1");
-                    myScore.push(anotherPoint);
-                    console.log("my single score is", myScore);
                     myScoreSum += anotherPoint;
                     console.log("my score is", myScoreSum);
 
                     for (let j = 0; j < myNewBombArrayRandom.length; j++) {
                         if (myNewArrRandom[i] === myNewBombArrayRandom[j]) {
                             this.classList.add("clicked-red");
-                            alert("Hai perso! Hai totalizzato un totale di: " + myScoreSum[-1] + " punti!");
+                            alert("Hai perso! Hai totalizzato un totale di: " + (myScoreSum-1) + " punti!");
+                        // } else if (myScoreSum === nCells - myNewBombArrayRandom) {
+                        //     this.classList.add("clicked-blue");
+                        //     alert("Hai vinto! Hai totalizzato un totale di: " + myScoreSum + " punti!");
                         } else{
                             this.classList.add("clicked-blue");
                         }
