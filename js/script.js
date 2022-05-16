@@ -22,7 +22,6 @@ playBtn.addEventListener("click",
         gridEl.innerHTML = "";
 
         const chooseLev = parseInt(selectLev.value);
-        console.log(chooseLev);
 
         // variabili che settano le dimensioni della griglia
         switch (chooseLev) {
@@ -48,12 +47,11 @@ playBtn.addEventListener("click",
 
         let myScoreSum = 0;
         const anotherPoint = 1;
+        console.log("il mio punteggio è:", myScoreSum);
 
         for (let i = 0; i < myNewArrRandom.length; i++) {
 
             let  divEl = createMyElement(classCelss);
-    
-            console.log("prova", myNewArrRandom[i]);
     
             divEl.addEventListener("click", 
                 function () {
@@ -67,9 +65,9 @@ playBtn.addEventListener("click",
                         if (myNewArrRandom[i] === myNewBombArrayRandom[j]) {
                             this.classList.add("clicked-red");
                             alert("Hai perso! Hai totalizzato un totale di: " + (myScoreSum-1) + " punti!");
-                        // } else if (myScoreSum === nCells - myNewBombArrayRandom) {
-                        //     this.classList.add("clicked-blue");
-                        //     alert("Hai vinto! Hai totalizzato un totale di: " + myScoreSum + " punti!");
+                        } else if (myScoreSum == (nCells - myNewBombArrayRandom.length)) {
+                            this.classList.add("clicked-blue");
+                            alert("Hai vinto! Hai totalizzato un totale di: " + myScoreSum + " punti!");
                         } else{
                             this.classList.add("clicked-blue");
                         }
